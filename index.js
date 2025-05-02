@@ -20,11 +20,9 @@ const winningPositions = [
 function initGame () {
     currentPlayer = "X";
     gameGrid = ["","","","","","","","",""];
-    //UI pe empty bhi krna padega boxes ko
     boxes.forEach((box, index) => {
         box.innerText = "";
         boxes[index].style.pointerEvents = "all";
-        //one more thing is missing, initialise box with css property again
         box.classList = `box box${index+1}`
     });
     newGameBtn.classList.remove("active");
@@ -97,14 +95,10 @@ function CheckGameOver() {
 
 function handleClick(index) {
     if(gameGrid[index] === "") {
-        // or yha niche vali line UI pr represent kr rhi h
         boxes[index].innerText = currentPlayer;
-        // ye niche vali line line no. 22 ki grid ko represent kr rhi h
         gameGrid[index] = currentPlayer;
         boxes[index].style.pointerEvents = "none";
-        //swap kro trun
         swapTurn();
-        //check koi jit to nhi gya
         CheckGameOver();
     }
 }
